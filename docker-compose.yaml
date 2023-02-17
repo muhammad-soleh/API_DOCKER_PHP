@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  app:
+    container_name: APP_CRUD
+    image: php:8.0-apache
+    environment:
+      - DB_HOST=db
+      - DB_USER=admin
+      - DB_PASS=admin
+      - DB_NAME=api_coba
+    volumes:
+      - ./app/:/var/www/html/
+    ports:
+      - 8000:80
+  
+  db:
+    container_name: db
+    image: mysql 
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: api_coba
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "9906:3306"
