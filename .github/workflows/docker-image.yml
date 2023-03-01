@@ -21,6 +21,6 @@ jobs:
       run: 
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build Docker
-      run: docker build ./app --tag muhammadsoleh0412/api-php:$(date +%s)
+      run: docker build ./app --tag muhammadsoleh0412/api-php:latest
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/muhammadsoleh0412/api-php
