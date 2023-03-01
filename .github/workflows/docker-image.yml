@@ -23,4 +23,4 @@ jobs:
     - name: Build Docker
       run: docker build ./app --tag muhammadsoleh0412/api-php:latest
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/muhammadsoleh0412/api-php
+      run: docker push ${{secrets.DOCKER_USER}}/api-php:latest
